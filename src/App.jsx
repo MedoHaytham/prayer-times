@@ -9,7 +9,7 @@ import {ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/prayer-times',
     element: <RootLayout />,
     children: [
       {index: true, element: <PrayerTimes />},
