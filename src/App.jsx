@@ -5,6 +5,7 @@ import PrayerTimes from './pages/prayerTimes';
 import Quran from './pages/quran';
 import {ToastContainer } from 'react-toastify';
 import SurahPage from './pages/surahPage';
+import ErrorPage from './pages/errorPage';
 
 
 const basename = process.env.PUBLIC_URL || '/';
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <PrayerTimes /> },
       { path: 'quran', element: <Quran /> },

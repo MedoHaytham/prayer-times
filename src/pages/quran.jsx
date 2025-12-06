@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Surah from '../components/surah';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const Quran = () => {
@@ -11,8 +12,12 @@ const Quran = () => {
 
   useEffect(() => {
     async function fetchSurahs() {
-      let response = await axios.get('https://api.alquran.cloud/v1/surah');
-      setSurahs(response.data.data)
+      try{
+        let response = await axios.get('https://api.alquran.cloud/v1/surah');
+        setSurahs(response.data.data)
+      } catch(error) {
+        toast.error('Error on fetchSurahs: ' + error);
+      }
     }
 
     fetchSurahs();

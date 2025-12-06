@@ -1,63 +1,38 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import AudioBar from '../components/audioBar';
+import { toast } from 'react-toastify';
 
 const SurahPage = () => {
 
   const { num } = useParams();
+  const navigate = useNavigate();
 
   const [ayat, setAyat] = useState([]);
   const [audio, setAudio] = useState('');
-  const [progress, setProgress] = useState(0);
-  const audioRef = useRef(null);
+
 
   useEffect(() => {
     async function fetchAyat() {
-      let response = await axios.get(`https://quranapi.pages.dev/api/${num}.json`);
-      setAyat(response.data.arabic1);
-      setAudio(response.data.audio["1"].url);
+      try{
+        let response = await axios.get(`https://quranapi.pages.dev/api/${num}.json`);
+        setAyat(response.data.arabic1);
+        setAudio(response.data.audio["1"].url);
+      } catch(error) {
+        toast.error('Erro on fetchAyat: ' + error);
+      }
     }
 
     fetchAyat();
-  },[num])
-
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      const current = audioRef.current.currentTime;
-      const duration = audioRef.current.duration || 1;
-      setProgress((current / duration) * 100);
-    }
-  };
+  },[num]);
 
   return (
     <section className='surah'>
-      <div className='container aduoi-cont'>
-        {audio && (
-          <>
-            {/* الـ Audio الحقيقي (مخفي تحت الـ progress) */}
-            <audio
-              ref={audioRef}
-              src={audio}
-              autoPlay
-              onTimeUpdate={handleTimeUpdate}
-              style={{ display: 'none' }} // نخفيه
-            />
-
-            {/* الـ Progress Bar البديل الجميل */}
-              <div className="progress-container">
-                <div 
-                  className="progress-fill" 
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-              <div className="play-pause-btn" onClick={() => {
-                audioRef.current.paused ? audioRef.current.play() : audioRef.current.pause();
-              }}>
-                {audioRef.current?.paused ? <i className="fa-solid fa-play"></i> : <i className="fa-solid fa-pause"></i>}
-              </div>
-          </>
-        )}
-
+      <AudioBar audio={audio} />
+      <div className='container next-prev'>
+        { num > 1 && <button className='btn prev-btn' onClick={() => navigate(`../quran/surah/${+num - 1}`)}>السابق</button>}
+        { num < 114 && <button className='btn next-btn' onClick={() => navigate(`../quran/surah/${+num + 1}`)} >التالى</button>}
       </div>
       <div className='container ayat-container'>
         <h1 className='ayaText'>بسم الله الرحمن الرحيم</h1>
@@ -67,8 +42,9 @@ const SurahPage = () => {
               <h2 className='ayaText' key={index}>{a}<span className='aya-num'>{index + 1}</span></h2>
             ))
           }
+          
         </div>
-      </div>    
+      </div>
     </section>
   );
 }
