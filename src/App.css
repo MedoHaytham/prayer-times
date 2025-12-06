@@ -128,12 +128,12 @@ body {
 }
 
 .container .top_sec .date h4{
-  font-size: 26px;
+  font-size: 22px;
 }
 
 @media (max-width: 767px) {
   .container .top_sec .date h4 {
-    font-size: 13px;
+    font-size: 10px;
   }
 }
 

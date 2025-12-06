@@ -12,6 +12,25 @@ const PrayerTimes = () => {
     {name: 'المنصورة', value: 'Mansoura'},
     {name: 'أسوان', value: 'Aswan'},
     {name: 'الأقصر', value: 'Luxor'},
+    {name: 'سوهاج', value: 'Sohag'},
+    {name: 'قنا', value: 'Qena'},
+    {name: 'المنيا', value: 'Minya'},
+    {name: 'الفيوم', value: 'Fayoum'},
+    {name: 'بني سويف', value: 'Beni Suef'},
+    {name: 'الاسماعيلية', value: 'Ismailia'},
+    {name: 'بورسعيد', value: 'Port Said'},
+    {name: 'دمياط', value: 'Damietta'},
+    {name: 'الشرقية', value: 'Sharqia'},
+    {name: 'الغربية', value: 'Gharbia'},
+    {name: 'كفر الشيخ', value: 'Kafr El Sheikh'},
+    {name: 'الدقهلية', value: 'Dakahlia'},
+    {name: 'مطروح', value: 'Matrouh'},
+    {name: 'البحر الأحمر', value: 'Red Sea'},
+    {name: 'جنوب سيناء', value: 'South Sinai'},
+    {name: 'شمال سيناء', value: 'North Sinai'},
+    {name: 'البحيرة', value: 'Beheira'},
+    {name: 'السويس', value: 'Suez'},
+    {name: 'أسيوط', value: 'Assiut'}
   ]
 
   const [date, setDate] = useState('');
@@ -167,7 +186,8 @@ const PrayerTimes = () => {
           <div className="date">
             <div></div>
             <h3>التاريخ</h3>
-            <h4 className='fw-bold'>{!higri ? '00-00-0000' : `${higri} | ${date}`}</h4>
+            <h4 className='fw-bold'>الميلادى : {!date ? '00-00-0000' : date}</h4>
+            <h4 className='fw-bold'>الهجرى : {!higri ? '00-00-0000' : higri}</h4>
           </div>
         </div>
         <div className="countdown">
