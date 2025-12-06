@@ -6,10 +6,10 @@ import { toast } from 'react-toastify';
 const PrayerTimes = () => {
 
   const cities = [
-    {name: 'القاهره', value: 'Cairo'},
-    {name: 'الاسكندريه', value: 'Alexandria'},
-    {name: 'الجيزه', value: 'Giza'},
-    {name: 'المنصوره', value: 'Mansoura'},
+    {name: 'القاهرة', value: 'Cairo'},
+    {name: 'الاسكندرية', value: 'Alexandria'},
+    {name: 'الجيزة', value: 'Giza'},
+    {name: 'المنصورة', value: 'Mansoura'},
     {name: 'أسوان', value: 'Aswan'},
     {name: 'الأقصر', value: 'Luxor'},
   ]
@@ -159,7 +159,7 @@ const PrayerTimes = () => {
       <div className="container prayer-times-container">
         <div className="top_sec">
           <div className="city">
-            <h3>المدينه</h3>
+            <h3>المدينة</h3>
             <select name="city" id="city" onChange={(e) => setCity(e.target.value)}>
               {cities.map((c) => (<option key={c.value} value={c.value}>{c.name}</option>))}
             </select>

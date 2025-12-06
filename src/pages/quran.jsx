@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Quran = () => {
 
   const [surahs, setSurahs] = useState([]);
-  const revelationTypeInAr = {Meccan: 'مكيه', Medinan: 'مدنيه'};
+  const revelationTypeInAr = {Meccan: 'مكية', Medinan: 'مدنية'};
 
   useEffect(() => {
     async function fetchSurahs() {
