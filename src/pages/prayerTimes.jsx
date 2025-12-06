@@ -156,7 +156,7 @@ const PrayerTimes = () => {
 
   return ( 
     <section className='prayertimes'>
-      <div className="container">
+      <div className="container prayer-times-container">
         <div className="top_sec">
           <div className="city">
             <h3>المدينه</h3>

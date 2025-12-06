@@ -24,6 +24,7 @@ body {
   background-size: cover;
   height: 100vh;
   background-position: 0%;
+  background-attachment: fixed;
 }
 
 .navbar {
@@ -37,14 +38,14 @@ body {
   }
 }
 
-
+/* prayer times start*/
 .prayertimes {
   display: flex;
   height: calc(100vh - 55.99px);
   align-items: center;
 }
 
-.container {
+.prayer-times-container {
   width: 650px !important;
   color: white;
   background: #332a224e;
@@ -102,7 +103,7 @@ body {
   width: 250px;
   border-radius: 5px;
   outline: none;
-  background-color: #a54f3a;
+  background-color: #c0583e75;
   padding: 2px 10px;
   color: white;
   font-size: 22px;
@@ -130,10 +131,6 @@ body {
   }
 }
 
-hr {
-  height: 1px;
-}
-
 .container .times .prayer {
   display: flex;
   justify-content: space-between;
@@ -155,8 +152,8 @@ hr {
   margin-bottom: 25px;
 }
 
-.container .times .prayer p {
-  margin-bottom: 0;
+p {
+  margin-bottom: 0 !important;
 }
 
 .countdown {
@@ -171,4 +168,98 @@ hr {
     font-size: 10px;
   }
 }
+/* prayer times end*/
+
+/* quran start */
+
+.quran {
+  display: flex;
+  align-items: center;
+}
+
+.quran .quran-container {
+  color: white;
+  background: #332a224e;
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid #d7d7d74e;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.quran .quran-container .card {
+  width: 350px;
+  height: 155px;
+  flex-grow: 1;
+  padding: 10px 15px;
+  background-color: #c0583e75 !important;
+  color: white !important;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+
+.quran .quran-container .card:hover {
+  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.459) !important;
+  color: black !important;
+}
+
+.quran .quran-container .card .sura-info {
+  display: flex;
+  justify-content: space-between;
+}
+/* quran end */
+
+
+/* ayat start */
+.surah {
+  display: flex;
+  align-items: center;
+}
+
+.ayat-container {
+  color: white;
+  background: #332a224e;
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid #d7d7d74e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ayat-container .ayat {
+  display: block;
+  line-height: 2.4;
+  font-size: 26px;
+}
+
+.ayat-container .ayaText {
+  display: inline;
+  margin-left: 8px;
+}
+
+.ayat-container .aya-num {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 16px;
+  font-size: 18px;
+  border: 1px solid;
+  border-radius: 50%;
+  margin: 0 10px;
+  font-weight: bold;
+}
+/* ayat end */
 
