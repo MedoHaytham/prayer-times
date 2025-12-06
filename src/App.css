@@ -184,6 +184,7 @@ p {
 }
 
 .quran .quran-container {
+  width: 90%;
   color: white;
   background: #332a224e;
   backdrop-filter: blur(10px);
@@ -197,6 +198,7 @@ p {
   flex-wrap: wrap;
   gap: 20px;
 }
+
 
 .quran .quran-container .card {
   width: 350px;
@@ -212,7 +214,7 @@ p {
 
 .quran .quran-container .card:hover {
   transform: scale(1.02);
-  background-color: rgba(255, 255, 255, 0.459) !important;
+  background-color: #ffffff75 !important;
   color: black !important;
 }
 
@@ -226,15 +228,68 @@ p {
 /* ayat start */
 .surah {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.ayat-container {
+.aduoi-cont{
+  width: 90% !important;
   color: white;
   background: #332a224e;
   backdrop-filter: blur(10px);
   padding: 30px 25px;
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border: 1px solid #d7d7d74e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-container {
+  width: 95%;
+  height: 14px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 11px;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.progress-fill {
+  height: 95%;
+  width: 0;
+  background: linear-gradient(90deg, #c0583e75);
+  border-radius: 50px;
+  transition: width 0.3s ease;
+}
+
+.play-pause-btn {
+  padding: 15px 15px;
+  line-height: 0;
+  background: #c0583e75;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.play-pause-btn:hover {
+  background: #ffffff75;
+  color: black;
+  transform: scale(1.05);
+}
+
+.ayat-container {
+  width: 90% !important;
+  color: white;
+  background: #332a224e;
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
   margin-bottom: 100px;
   border-radius: 10px;
   border: 1px solid #d7d7d74e;
@@ -242,6 +297,7 @@ p {
   flex-direction: column;
   align-items: center;
 }
+
 
 .ayat-container .ayat {
   display: block;

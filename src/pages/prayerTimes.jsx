@@ -84,7 +84,7 @@ const PrayerTimes = () => {
     const interval = setInterval(() => {
       
       const now = new Date();
-      const prayers = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+      const prayers = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
       let found = false;
 
       for(let p of prayers) {
@@ -97,6 +97,7 @@ const PrayerTimes = () => {
           const prayerInArabic  = {
             Fajr: 'الفجر',
             Dhuhr: 'الظهر',
+            Sunrise: 'الشروق',
             Asr: 'العصر',
             Maghrib: 'المغرب',
             Isha: 'العشاء',
