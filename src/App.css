@@ -41,25 +41,31 @@ body {
 /* prayer times start*/
 .prayertimes {
   display: flex;
-  height: calc(100vh - 55.99px);
   align-items: center;
 }
 
-.prayer-times-container {
+.prayertimes .prayer-times-container {
   width: 650px !important;
   color: white;
   background: #332a224e;
   backdrop-filter: blur(10px);
+  margin-top: 93px;
+  margin-bottom: 93px;
+  margin-right: 15%;
   padding: 30px 25px;
-  margin: 15% !important;
-  border-radius: 10px;
   border: 1px solid #d7d7d74e;
   display: flex;
   flex-direction: column;
 }
 
 @media (max-width: 767px) {
-  .container {
+  .prayertimes .prayer-times-container {
+    margin: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .prayertimes .prayer-times-container {
     margin: 20px !important;
   }
 }
