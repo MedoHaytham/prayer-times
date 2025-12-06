@@ -167,7 +167,13 @@ p {
   gap: 20px;
   margin-bottom: 20px;
   align-items: center;
-} 
+}
+
+@media (max-width: 767px) {
+  .countdown {
+    gap: 12px;
+  }
+}
 
 @media (max-width: 767px) {
   .countdown h5 {
@@ -237,7 +243,7 @@ p {
   color: white;
   background: #332a224e;
   backdrop-filter: blur(10px);
-  padding: 30px 25px;
+  padding: 20px;
   margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -303,7 +309,7 @@ p {
   backdrop-filter: blur(10px) !important;
   border-radius: 10px !important;
   border: 1px solid #d7d7d74e !important;
-  padding: 20px !important;
+  padding: 10px 20px !important;
 }
 
 .next-btn {
@@ -342,23 +348,42 @@ p {
   font-size: 26px;
 }
 
+
+@media (max-width: 767px) {
+  .ayat-container .ayat {
+    font-size: 18px;
+  }
+}
+
+
+
 .ayat-container .ayaText {
   display: inline;
-  margin-left: 8px;
 }
 
 .ayat-container .aya-num {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: fit-content;
+  height: fit-content;
   padding: 16px;
   font-size: 18px;
   border: 1px solid;
   border-radius: 50%;
   margin: 0 10px;
   font-weight: bold;
+  line-height: 0.5;
+}
+
+@media (max-width: 767px) {
+  .ayat-container .aya-num {
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    padding: 8px;
+    margin: 0 5px 0 5px;
+  }
 }
 
 /* ayat end */
