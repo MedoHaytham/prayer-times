@@ -27,7 +27,6 @@ const Quran = () => {
         {surahs.map((s) =>
           <Surah key={s.number} name={s.name} revelationType={revelationTypeInAr[s.revelationType]} totalAyah={s.numberOfAyahs} onClick={() => navigate(`surah/${s.number}`)}/>
         )}
-
       </div>
     </section>
 
