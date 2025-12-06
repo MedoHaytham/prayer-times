@@ -32,7 +32,7 @@ const SurahPage = () => {
       <AudioBar audio={audio} />
       <div className='container next-prev'>
         { num > 1 && <button className='btn prev-btn' onClick={() => navigate(`../quran/surah/${+num - 1}`)}>السابق</button>}
-        { num < 114 && <button className='btn next-btn' onClick={() => navigate(`../quran/surah/${+num + 1}`)} >التالى</button>}
+        { num < 114 && <button className='btn next-btn' onClick={() => navigate(`../quran/surah/${+num + 1}`)} >التالي</button>}
       </div>
       <div className='container ayat-container'>
         <h1 className='ayaText'>بسم الله الرحمن الرحيم</h1>
