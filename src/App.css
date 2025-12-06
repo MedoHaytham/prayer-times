@@ -332,7 +332,7 @@ p {
   color: white;
   background: #332a224e;
   backdrop-filter: blur(10px);
-  padding: 30px 25px;
+  padding: 30px;
   margin-bottom: 100px;
   border-radius: 10px;
   border: 1px solid #d7d7d74e;
@@ -355,10 +355,12 @@ p {
   }
 }
 
-
-
 .ayat-container .ayaText {
   display: inline;
+}
+
+.ayat-container .first {
+  margin-bottom: 20px;
 }
 
 .ayat-container .aya-num {
@@ -367,7 +369,7 @@ p {
   align-items: center;
   width: fit-content;
   height: fit-content;
-  padding: 16px;
+  padding: 12px;
   font-size: 18px;
   border: 1px solid;
   border-radius: 50%;

@@ -35,7 +35,7 @@ const SurahPage = () => {
         { num < 114 && <button className='btn next-btn' onClick={() => navigate(`../quran/surah/${+num + 1}`)} >التالي</button>}
       </div>
       <div className='container ayat-container'>
-        <h1 className='ayaText'>بسم الله الرحمن الرحيم</h1>
+        <h1 className='ayaText first'>بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</h1>
         <div className='ayat'>
           {
             ayat.map((a, index) => (
