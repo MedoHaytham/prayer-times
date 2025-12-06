@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/prayer-times/static/css/main.af44d869.css",
-    "main.js": "/prayer-times/static/js/main.100ec853.js",
+    "main.js": "/prayer-times/static/js/main.d8f8aedb.js",
     "static/media/bg.gif": "/prayer-times/static/media/bg.27c9f028d1d99a2cdb46.gif",
     "static/media/fa-solid-900.woff2": "/prayer-times/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
     "static/media/fa-brands-400.woff2": "/prayer-times/static/media/fa-brands-400.1c5c7716b05754cb4eab.woff2",
@@ -9,10 +9,10 @@
     "static/media/fa-v4compatibility.woff2": "/prayer-times/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
     "index.html": "/prayer-times/index.html",
     "main.af44d869.css.map": "/prayer-times/static/css/main.af44d869.css.map",
-    "main.100ec853.js.map": "/prayer-times/static/js/main.100ec853.js.map"
+    "main.d8f8aedb.js.map": "/prayer-times/static/js/main.d8f8aedb.js.map"
   },
   "entrypoints": [
     "static/css/main.af44d869.css",
-    "static/js/main.100ec853.js"
+    "static/js/main.d8f8aedb.js"
   ]
 }
