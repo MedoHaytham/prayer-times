@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; URL=./index.html">
-    <script>
-      // لو عايز إعادة توجيه مع الحفاظ على المسار الحالي
-      const redirectTo = window.location.pathname;
-      window.location.replace('/' + redirectTo);
-    </script>
-  </head>
-  <body>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    // ناخد المسار الحالي
+    const path = window.location.pathname + window.location.search + window.location.hash;
+    // نعمل إعادة توجيه للـ index.html مع إضافة المسار
+    window.location.replace(window.location.origin + '/index.html' + path);
+  </script>
+</head>
+<body>
+  <p>جاري إعادة التوجيه...</p>
+</body>
 </html>
