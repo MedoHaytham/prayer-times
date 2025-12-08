@@ -30,7 +30,7 @@ const AudioBar = (props) => {
     <div className='container aduoi-cont'>
         {props.audio && (
           <>
-            <audio ref={audioRef} src={props.audio} autoPlay onTimeUpdate={handleTimeUpdate} />
+            <audio ref={audioRef} src={props.audio} onTimeUpdate={handleTimeUpdate} />
             <div className="progress-container"  onClick={handleSeek}>
               <div className="progress-fill" style={{ width: `${progress}%` }}/>
             </div>

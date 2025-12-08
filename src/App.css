@@ -19,6 +19,14 @@
     }
 }
 
+:root {
+    --main-color: #c0583e75;
+    --main-color-hover: #ffffff75;
+    --main-border-color: #d7d7d74e;
+    --main-transition: 0.3s;
+    --main-background-color: #332a224e;
+}
+
 body {
   background-image: url('./assets/bg.gif');
   background-size: cover;
@@ -28,7 +36,7 @@ body {
 }
 
 .navbar {
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
 }
 
@@ -47,13 +55,14 @@ body {
 .prayertimes .prayer-times-container {
   width: 650px !important;
   color: white;
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
   margin-top: 93px;
   margin-bottom: 93px;
   margin-right: 15%;
   padding: 30px 25px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -74,7 +83,7 @@ body {
   display: flex;
   padding-bottom: 40px;
   margin-bottom: 40px;
-  border-bottom: 1px solid #d7d7d74e;
+  border-bottom: 1px solid var(--main-border-color);
 }
 
 @media (max-width: 767px) {
@@ -109,7 +118,7 @@ body {
   width: 250px;
   border-radius: 5px;
   outline: none;
-  background-color: #c0583e75;
+  background-color: var(--main-color);
   padding: 2px 10px;
   color: white;
   font-size: 22px;
@@ -141,10 +150,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #c0583e75;
+  background-color: var(--main-color);
   padding: 5px 25px;
   border-radius: 5px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
   font-size: 24px;
 }
 
@@ -192,13 +201,13 @@ p {
 .quran .quran-container {
   width: 90%;
   color: white;
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
   padding: 30px 25px;
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 10px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -211,7 +220,7 @@ p {
   height: 155px;
   flex-grow: 1;
   padding: 10px 15px;
-  background-color: #c0583e75 !important;
+  background-color: var(--main-color) !important;
   color: white !important;
   display: flex;
   justify-content: space-between;
@@ -220,7 +229,7 @@ p {
 
 .quran .quran-container .card:hover {
   transform: scale(1.02);
-  background-color: #ffffff75 !important;
+  background-color: var(--main-color-hover) !important;
   color: black !important;
 }
 
@@ -241,13 +250,13 @@ p {
 .aduoi-cont{
   width: 90% !important;
   color: white;
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
   padding: 20px;
   margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -257,7 +266,7 @@ p {
   width: 95%;
   height: 14px;
   margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.15);
+  background: #ffffff26;
   margin-top: 11px;
   border-radius: 50px;
   overflow: hidden;
@@ -270,19 +279,19 @@ p {
 .progress-fill {
   height: 95%;
   width: 0;
-  background: linear-gradient(90deg, #c0583e75);
+  background: linear-gradient(90deg, var(--main-color));
   border-radius: 50px;
   transition: width 0.3s ease;
 }
 
 .progress-container:hover .progress-fill {
-  background: linear-gradient(90deg, #ffffff75);
+  background: linear-gradient(90deg, var(--main-color-hover));
 }
 
 .play-pause-btn {
   padding: 15px 15px;
   line-height: 0;
-  background: #c0583e75;
+  background: var(--main-color);
   color: white;
   font-weight: bold;
   border-radius: 50px;
@@ -291,7 +300,7 @@ p {
 }
 
 .play-pause-btn:hover {
-  background: #ffffff75;
+  background: var(--main-color-hover);
   color: black;
   transform: scale(1.05);
 }
@@ -304,11 +313,11 @@ p {
 
 .next-btn, 
 .prev-btn{
-  background-color: #c0583e75 !important;
+  background-color: var(--main-color) !important;
   color: white !important;
   backdrop-filter: blur(10px) !important;
   border-radius: 10px !important;
-  border: 1px solid #d7d7d74e !important;
+  border: 1px solid var(--main-border-color) !important;
   padding: 10px 20px !important;
 }
 
@@ -322,7 +331,7 @@ p {
 
 .next-btn:hover, 
 .prev-btn:hover {
-  background-color: #ffffff75 !important;
+  background-color: var(--main-color-hover) !important;
   color: black !important;
   
 }
@@ -330,12 +339,12 @@ p {
 .ayat-container {
   width: 90% !important;
   color: white;
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
   padding: 30px;
   margin-bottom: 100px;
   border-radius: 10px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -393,9 +402,9 @@ p {
 .error-page {
   width: fit-content !important;
   color: white;
-  background: #332a224e;
+  background: var(--main-background-color);
   backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid #d7d7d74e;
+  border: 1px solid var(--main-border-color);
   padding: 10px;
 }
