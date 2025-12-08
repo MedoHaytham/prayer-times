@@ -1,27 +1,36 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import RootLayout from './layout/rootLayouts';
 import PrayerTimes from './pages/prayerTimes';
 import Quran from './pages/quran';
+import {ToastContainer } from 'react-toastify';
 import SurahPage from './pages/surahPage';
 import ErrorPage from './pages/errorPage';
-import { ToastContainer } from 'react-toastify';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+const basename = process.env.PUBLIC_URL || '/';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <PrayerTimes /> },
+      { path: 'quran', element: <Quran /> },
+      {path: 'quran/surah/:num', element: <SurahPage />},
+    ],
+  },
+], { basename });
+
+
 
 function App() {
   return (
-    <>
+    <>    
       <ToastContainer />
-      <Router>
-        <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route index element={<PrayerTimes />} />
-            <Route path="quran" element={<Quran />} />
-            <Route path="quran/surah/:num" element={<SurahPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
-      </Router>
+      <RouterProvider router={router} />
     </>
+
   );
 }
 
