@@ -13,11 +13,11 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>المصلى</title>
     <script>
-      (function() {
-        var path = window.location.pathname + window.location.search + window.location.hash;
-        if (path !== '/' && path !== '/index.html') {
-          window.history.replaceState({}, '', '/');
-          window.location.reload();
+      (function(){
+        const redirect = sessionStorage.redirect;
+        if (redirect && redirect !== location.pathname) {
+          sessionStorage.removeItem('redirect');
+          history.replaceState(null, null, redirect);
         }
       })();
     </script>
