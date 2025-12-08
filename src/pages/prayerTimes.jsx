@@ -19,15 +19,10 @@ const PrayerTimes = () => {
     {name: 'بني سويف', value: 'Beni Suef'},
     {name: 'الاسماعيلية', value: 'Ismailia'},
     {name: 'بورسعيد', value: 'Port Said'},
-    {name: 'دمياط', value: 'Damietta'},
-    {name: 'الشرقية', value: 'Sharqia'},
-    {name: 'الغربية', value: 'Gharbia'},
     {name: 'كفر الشيخ', value: 'Kafr El Sheikh'},
     {name: 'الدقهلية', value: 'Dakahlia'},
     {name: 'مطروح', value: 'Matrouh'},
-    {name: 'البحر الأحمر', value: 'Red Sea'},
     {name: 'جنوب سيناء', value: 'South Sinai'},
-    {name: 'شمال سيناء', value: 'North Sinai'},
     {name: 'البحيرة', value: 'Beheira'},
     {name: 'السويس', value: 'Suez'},
     {name: 'أسيوط', value: 'Assiut'}
@@ -66,7 +61,7 @@ const PrayerTimes = () => {
 
     async function fetchingTimingsPrayers() {
       try {
-        let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDateToday()}?address=${city},Eg&method=8`);
+        let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDateToday()}?address=${city},Eg&method=5`);
         setTimings(result.data.data.timings);
         setDate(getDateToday());
         setHigri(result.data.data.date.hijri.date);
@@ -75,11 +70,18 @@ const PrayerTimes = () => {
       }
     }
     fetchingTimingsPrayers();
+
+
+  if (adhanAudio.current) {
+    adhanAudio.current.load();
+  }
   },[city]);
 
 
   useEffect(() => {
     if(!timings.Fajr) return;
+
+    let hasPlayedAdhan = false;
 
     const interval = setInterval(() => {
       
@@ -112,8 +114,9 @@ const PrayerTimes = () => {
 
           setCountdown(`${h}h : ${m}m : ${s}s`);
 
-          if(diff < 1 && adhanAudio.current) {
+          if(diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
             adhanAudio.current.play().catch((error) => toast.error(error));
+            hasPlayedAdhan = true;
           }
           return;
         }
@@ -127,7 +130,7 @@ const PrayerTimes = () => {
         if (now > ishaTime) {
           async function fetchingTimingsPrayers() {
             try {
-              let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDatetomorrow()}?address=${city},Eg&method=8`);
+              let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDatetomorrow()}?address=${city},Eg&method=5`);
               setTimings(result.data.data.timings);
             } catch(error) {
               toast.error('Error fetching timings:' + error);
@@ -151,8 +154,9 @@ const PrayerTimes = () => {
 
         setCountdown(`${h}h : ${m}m : ${s}s`);
 
-        if(diff < 1 && adhanAudio.current) {
+        if(diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
           adhanAudio.current.play().catch((error) => toast.error(error));
+          hasPlayedAdhan = true;
         }
       }
 
@@ -205,7 +209,7 @@ const PrayerTimes = () => {
           <Prayer name={'المغرب'} time={convertTo12(timings.Maghrib)}/>
           <Prayer name={'العشاء'} time={convertTo12(timings.Isha)}/>
         </div>
-        <audio ref={adhanAudio} src="/sounds/adhan.mp3" />
+        <audio ref={adhanAudio} src="https://github.com/MedoHaytham/azan-for-prayer-app/raw/refs/heads/main/adhan.mp3" />
       </div>
     </section>
   );
