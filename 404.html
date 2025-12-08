@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>المصلى</title>
+    <meta http-equiv="refresh" content="0; URL=./index.html">
     <script>
-      // الحل السحري اللي شغال مع 99.9% من مشاريع React على GitHub Pages
-      sessionStorage.redirect = location.pathname + location.search + location.hash;
+      // لو عايز إعادة توجيه مع الحفاظ على المسار الحالي
+      const redirectTo = window.location.pathname;
+      window.location.replace('/' + redirectTo);
     </script>
-    <meta http-equiv="refresh" content="0;url=/">
   </head>
   <body>
   </body>
