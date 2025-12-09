@@ -53,6 +53,10 @@ const ZkerPage = () => {
   return (
     <section className='zker-page'>
       <div className='container zker-container'>
+        <div className='top-sec'>
+          <span className="category">{category}</span>
+          <span>{azkar.length} / {index + 1}</span>
+        </div>
         {azkar.length > 0 ? <h2 className='zker-text'>{azkar[index].content}</h2>: ""}
         <div className="progress-circle">
           <button className="counter" disabled={disabled} onClick={counterHandler}>{counter}</button>
