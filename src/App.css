@@ -417,7 +417,7 @@ p {
 }
 
 .zker {
-  width: 180px;
+  width: 240px;
   height: 250px !important;
   text-align: center;
   display: flex !important;
@@ -429,6 +429,13 @@ p {
   border: 1px solid var(--main-border-color);
   color: white !important;
   border-radius: 10px;
+  transition: var(--main-transition);
+}
+
+.zker:hover {
+   transform: scale(1.02);
+  background-color: var(--main-color-hover) !important;
+  color: black !important;
 }
 
 @media (max-width: 767px) {
@@ -445,7 +452,7 @@ p {
 
 
 .zker .zker-icon {
-  width: 130px;
+  width: 150px;
   margin-bottom: 10px;
 }
 /*azkar end*/
