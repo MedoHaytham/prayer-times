@@ -14,17 +14,17 @@ const ZkerPage = () => {
 
 
   useEffect(() => {
-    async function fetchSurahs() {
+    async function fetchAzkar() {
       try {
-        let response = await axios.get('/jsons/azkar.json');
+        let response = await axios.get('https://raw.githubusercontent.com/wdalgrb/azkar-api/refs/heads/main/website/azkar.json');
         setAzkar(response.data[category]);
         setIndex(0);
       } catch (error) {
-        toast.error('Error on fetchSurahs: ' + error);
+        toast.error('Error on fetchAzkar: ' + error);
       }
     }
 
-    fetchSurahs();
+    fetchAzkar();
   }, [category]);
 
   function counterHandler() {
