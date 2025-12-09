@@ -18,6 +18,9 @@ const Navbar = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="quran">القرآن</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="azkar">اذكار</NavLink>
+              </li>
             </ul>
           </div>
         </div>

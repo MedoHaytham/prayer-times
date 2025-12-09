@@ -7,25 +7,25 @@ const PrayerTimes = () => {
 
   const cities = [
     {name: 'القاهرة', value: 'Cairo'},
-    {name: 'الاسكندرية', value: 'Alexandria'},
     {name: 'الجيزة', value: 'Giza'},
-    {name: 'المنصورة', value: 'Mansoura'},
+    {name: 'الاسكندرية', value: 'Alexandria'},
     {name: 'أسوان', value: 'Aswan'},
+    {name: 'أسيوط', value: 'Assiut'},
     {name: 'الأقصر', value: 'Luxor'},
+    {name: 'الإسماعيلية', value: 'Ismailia'},
+    {name: 'البحيرة', value: 'Beheira'},
+    {name: 'الدقهلية', value: 'Dakahlia'},
+    {name: 'السويس', value: 'Suez'},
+    {name: 'الفيوم', value: 'Fayoum'},
+    {name: 'المنصورة', value: 'Mansoura'},
+    {name: 'المنيا', value: 'Minya'},
+    {name: 'بني سويف', value: 'Beni Suef'},
+    {name: 'بورسعيد', value: 'Port Said'},
+    {name: 'جنوب سيناء', value: 'South Sinai'},
     {name: 'سوهاج', value: 'Sohag'},
     {name: 'قنا', value: 'Qena'},
-    {name: 'المنيا', value: 'Minya'},
-    {name: 'الفيوم', value: 'Fayoum'},
-    {name: 'بني سويف', value: 'Beni Suef'},
-    {name: 'الاسماعيلية', value: 'Ismailia'},
-    {name: 'بورسعيد', value: 'Port Said'},
     {name: 'كفر الشيخ', value: 'Kafr El Sheikh'},
-    {name: 'الدقهلية', value: 'Dakahlia'},
     {name: 'مطروح', value: 'Matrouh'},
-    {name: 'جنوب سيناء', value: 'South Sinai'},
-    {name: 'البحيرة', value: 'Beheira'},
-    {name: 'السويس', value: 'Suez'},
-    {name: 'أسيوط', value: 'Assiut'}
   ]
 
   const [date, setDate] = useState('');
@@ -210,6 +210,7 @@ const PrayerTimes = () => {
           <Prayer name={'العشاء'} time={convertTo12(timings.Isha)}/>
         </div>
         <audio ref={adhanAudio} src="https://github.com/MedoHaytham/azan-for-prayer-app/raw/refs/heads/main/adhan.mp3" />
+        
       </div>
     </section>
   );

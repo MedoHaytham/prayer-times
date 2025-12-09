@@ -396,8 +396,115 @@ p {
     margin: 0 5px 0 5px;
   }
 }
-
 /* ayat end */
+
+/* azkar start*/
+.azkar .azkar-container {
+  width: 90%;
+  color: white;
+  background: var(--main-background-color);
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid var(--main-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.zker {
+  width: 180px;
+  height: 250px !important;
+  text-align: center;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color) !important;
+  padding: 20px;
+  border: 1px solid var(--main-border-color);
+  color: white !important;
+  border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .zker{
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .zker{
+    flex-grow: 1;
+  }
+}
+
+
+.zker .zker-icon {
+  width: 130px;
+  margin-bottom: 10px;
+}
+/*azkar end*/
+
+/* zker start */
+.zker-page {
+  display: flex;
+  
+}
+
+.zker-page .zker-container {
+  width: 90%;
+  color: white;
+  background: var(--main-background-color);
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid var(--main-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.counter {
+  width: 45px;
+  height: 45px;
+  background-color: white !important;
+  border-radius: 50px !important;
+  border: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.counter::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  padding: 30px;
+  background-color: var(--main-color);
+  border-radius: 50px !important;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* zker end */
+
+
+
+
+
 
 .error-page {
   width: fit-content !important;
