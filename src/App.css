@@ -23,7 +23,7 @@
     --main-color: #c0583e75;
     --main-color-hover: #ffffff75;
     --main-border-color: #d7d7d74e;
-    --main-transition: 0.3s;
+    --main-transition: 0.5s;
     --main-background-color: #332a224e;
 }
 
@@ -224,7 +224,7 @@ p {
   color: white !important;
   display: flex;
   justify-content: space-between;
-  transition: 0.5s;
+  transition: var(--main-transition);
 }
 
 .quran .quran-container .card:hover {
@@ -281,7 +281,7 @@ p {
   width: 0;
   background: linear-gradient(90deg, var(--main-color));
   border-radius: 50px;
-  transition: width 0.3s ease;
+  transition: width var(--main-transition) ease;
 }
 
 .progress-container:hover .progress-fill {
@@ -474,31 +474,38 @@ p {
   gap: 30px;
 }
 
-.counter {
+.zker-text {
+  line-height: 2.4;
+  font-size: 26px;
+}
+
+.progress-circle {
+  position: relative;
+}
+
+.progress-circle .counter {
   width: 45px;
   height: 45px;
   background-color: white !important;
   border-radius: 50px !important;
   border: none;
   font-weight: bold;
-  position: relative;
-}
-
-.counter::before {
-  content: '';
   position: absolute;
-  width: 100%;
-  padding: 30px;
-  background-color: var(--main-color);
-  border-radius: 50px !important;
-  z-index: -1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.circle-background {
+  fill: none;
+  stroke: #ffffff26;
+}
 
-
+.circle-progress {
+  fill: none;
+  stroke: var(--main-color);
+  transition: stroke-dashoffset var(--main-transition) ease;
+}
 /* zker end */
 
 
