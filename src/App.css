@@ -27,14 +27,6 @@
     --main-background-color: #332a224e;
 }
 
-body {
-  background-image: url('./assets/bg.gif');
-  background-size: cover;
-  height: 100vh;
-  background-position: 0%;
-  background-attachment: fixed;
-}
-
 .navbar {
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -526,7 +518,7 @@ p {
 /* qibla start */
 
 .qibla-compass {
-
+  display: flex;
 }
 
 .qibla-compass .qibla-container {
@@ -547,21 +539,21 @@ p {
   gap: 30px;
 }
 
-.img-container {
+.qibla-container .img-container {
   width: 250px;
   height: 250px;
   margin: auto;
   position: relative;
 }
 
-.compass-img {
+.qibla-container .img-container .compass-img {
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
   position: absolute;
 }
 
-.arrow-img {
+.qibla-container .img-container .arrow-img {
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;

@@ -9,3 +9,11 @@
 html {
   direction: rtl;
 }
+
+body {
+  background-image: url('./assets/bg.gif');
+  background-size: cover;
+  height: 100vh;
+  background-position: 0%;
+  background-attachment: fixed;
+}
