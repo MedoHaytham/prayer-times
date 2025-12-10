@@ -17,7 +17,6 @@ const ZkerPage = () => {
     async function fetchAzkar() {
       try {
         let response = await axios.get('https://raw.githubusercontent.com/wdalgrb/azkar-api/refs/heads/main/website/azkar.json');
-        console.log(response.data)
         setAzkar(response.data[category]);
         setIndex(0);
       } catch (error) {
@@ -58,6 +57,7 @@ const ZkerPage = () => {
           <button className="counter" disabled={disabled} onClick={counterHandler}>{counter}</button>
           <CircleProgress percentage={percentage} circleWidth={55.6} />
         </div>
+        {azkar.length > 0 ? <span className=''>عدد مرات الذكر: {azkar[index].count}</span> : ''}
       </div>
     </section>
   );
