@@ -411,7 +411,7 @@ p {
 
 .zker {
   width: 229px;
-  height: 250px !important;
+  height: 250px;
   text-align: center;
   display: flex !important;
   flex-direction: column;
@@ -426,13 +426,15 @@ p {
 }
 
 .zker:hover {
-   transform: scale(1.02);
+  transform: scale(1.02);
   background-color: var(--main-color-hover) !important;
   color: black !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .zker{
+    width: 120px;
+    height: 200px;
     flex-grow: 1;
   }
 }
@@ -448,6 +450,23 @@ p {
   width: 150px;
   margin-bottom: 10px;
 }
+
+@media (max-width: 992px) {
+  .zker .zker-icon {
+    width: 100px;
+  }
+}
+
+.zker h3 {
+  font-size: 26px;
+}
+
+@media (max-width: 992px) {
+  .zker h3 {
+    font-size: 16px;
+  }
+}
+
 /*azkar end*/
 
 /* zker start */
