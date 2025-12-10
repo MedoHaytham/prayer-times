@@ -418,7 +418,7 @@ p {
 }
 
 .zker {
-  width: 240px;
+  width: 229px;
   height: 250px !important;
   text-align: center;
   display: flex !important;
@@ -523,7 +523,52 @@ p {
   transition: stroke-dashoffset var(--main-transition) ease;
 }
 /* zker end */
+/* qibla start */
 
+.qibla-compass {
+
+}
+
+.qibla-compass .qibla-container {
+  width: 90%;
+  color: white;
+  background: var(--main-background-color);
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid var(--main-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.img-container {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  position: relative;
+}
+
+.compass-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+}
+
+.arrow-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+}
+
+/* qibla end */
 
 
 

@@ -17,6 +17,7 @@ const ZkerPage = () => {
     async function fetchAzkar() {
       try {
         let response = await axios.get('https://raw.githubusercontent.com/wdalgrb/azkar-api/refs/heads/main/website/azkar.json');
+        console.log(response.data)
         setAzkar(response.data[category]);
         setIndex(0);
       } catch (error) {
@@ -43,11 +44,6 @@ const ZkerPage = () => {
         setDisabled(true);
       }
     }
-  }
-
-  if (azkar.length > 0) {
-    console.log(azkar);
-    console.log(percentage);
   }
 
   return (

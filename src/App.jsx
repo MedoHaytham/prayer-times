@@ -8,6 +8,7 @@ import ErrorPage from './pages/errorPage';
 import { ToastContainer } from 'react-toastify';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import ZkerPage from './pages/zkerPage';
+import QiblaCompass from './pages/qiblaCompass';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="quran/surah/:num" element={<SurahPage />} />
             <Route path="azkar" element={<Azkar />} />
             <Route path="azkar/zker/:category" element={<ZkerPage />} />
+            <Route path="qibla-compass" element={<QiblaCompass />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
