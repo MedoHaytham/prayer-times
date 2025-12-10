@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/prayer-times/static/css/main.4fa7e30b.css",
+    "main.css": "/prayer-times/static/css/main.1d188c3d.css",
     "main.js": "/prayer-times/static/js/main.99752aef.js",
     "static/media/bg.gif": "/prayer-times/static/media/bg.27c9f028d1d99a2cdb46.gif",
     "static/media/compass-2.png": "/prayer-times/static/media/compass-2.0125c94b83273009766c.png",
@@ -11,11 +11,11 @@
     "static/media/fa-regular-400.woff2": "/prayer-times/static/media/fa-regular-400.6f05ca9ab7b5345dbc07.woff2",
     "static/media/fa-v4compatibility.woff2": "/prayer-times/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
     "index.html": "/prayer-times/index.html",
-    "main.4fa7e30b.css.map": "/prayer-times/static/css/main.4fa7e30b.css.map",
+    "main.1d188c3d.css.map": "/prayer-times/static/css/main.1d188c3d.css.map",
     "main.99752aef.js.map": "/prayer-times/static/js/main.99752aef.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fa7e30b.css",
+    "static/css/main.1d188c3d.css",
     "static/js/main.99752aef.js"
   ]
 }
