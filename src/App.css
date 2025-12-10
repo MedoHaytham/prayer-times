@@ -191,7 +191,6 @@ p {
 }
 
 .quran .quran-container {
-  width: 90%;
   color: white;
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -204,6 +203,22 @@ p {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .quran .quran-container {
+    width: 90%;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .quran .quran-container {
+    width: 90%;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 
@@ -241,7 +256,6 @@ p {
 }
 
 .aduoi-cont{
-  width: 90% !important;
   color: white;
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -253,6 +267,22 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .aduoi-cont{
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .aduoi-cont{
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 .progress-container {
@@ -299,9 +329,25 @@ p {
 }
 
 .next-prev {
-  width: 90% !important;
   justify-content: space-between;
   margin-bottom: 20px;
+  padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .next-prev {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .next-prev {
+    width: 90%;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 .next-btn, 
@@ -330,7 +376,6 @@ p {
 }
 
 .ayat-container {
-  width: 90% !important;
   color: white;
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -341,6 +386,22 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .ayat-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .ayat-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 
@@ -354,6 +415,7 @@ p {
 @media (max-width: 767px) {
   .ayat-container .ayat {
     font-size: 18px;
+    line-height: 2.6;
   }
 }
 
@@ -393,7 +455,6 @@ p {
 
 /* azkar start*/
 .azkar .azkar-container {
-  width: 90%;
   color: white;
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -408,6 +469,23 @@ p {
   flex-wrap: wrap;
   gap: 30px;
 }
+
+@media (max-width: 767px) {
+  .azkar .azkar-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .azkar .azkar-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
 
 .zker {
   width: 229px;
@@ -541,7 +619,6 @@ p {
 }
 
 .qibla-compass .qibla-container {
-  width: 90%;
   color: white;
   background: var(--main-background-color);
   backdrop-filter: blur(10px);
@@ -554,8 +631,22 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  gap: 30px;
+}
+
+@media (max-width: 767px) {
+  .qibla-compass .qibla-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .qibla-compass .qibla-container {
+    width: 90% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 .qibla-container .img-container {
@@ -578,7 +669,6 @@ p {
   transition: transform 0.5s ease-in-out;
   position: absolute;
 }
-
 /* qibla end */
 
 
