@@ -21,7 +21,7 @@ const Navbar = () => {
               <NavLink className="nav-link" to="azkar">اذكار</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="qibla-compass">اتجاه القبله</NavLink>
+              <NavLink className="nav-link" to="qibla-compass">إتجاه القبلة</NavLink>
             </li>
           </ul>
         </div>
