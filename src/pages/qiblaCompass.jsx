@@ -25,11 +25,17 @@ const QiblaCompass = () => {
     );
 
     // // 3) اتجاه الجهاز (البوصلة)
-    window.addEventListener("deviceorientation", (event) => {
-      const alpha = event.alpha;  // اتجاه الجهاز
-      setDeviceDeg(alpha);
-    });
+    const handleOrientation = (event) => {
+      if (event.alpha !== null) {
+        setDeviceDeg(prev => prev * 0.9 + event.alpha * 0.1);
+      }
+    };
 
+    window.addEventListener("deviceorientation", handleOrientation);
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
   }, []);
 
   return (
@@ -38,8 +44,7 @@ const QiblaCompass = () => {
         <h2>اتجاه القبلة</h2>
         <div className='img-container'>
           <img className='compass-img' src={compassImg} alt="compass" style={{ transform: `rotate(${-deviceDeg}deg)` }} />
-          <img  className='compass-img' src={compassImg} alt="compass" />
-          <img className='arrow-img' src={compassArrow} alt="arrow" style={{ transform: `rotate(${direction}deg) scale(0.4)`}}/>
+          <img className='arrow-img' src={compassArrow} alt="arrow" style={{ transform: `rotate(${direction - deviceDeg}deg) scale(0.4)`}}/>
         </div>
         <p>زاوية القبلة: {direction.toFixed(2)}°</p>
 
