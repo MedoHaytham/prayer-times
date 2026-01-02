@@ -27,7 +27,10 @@ const QiblaCompass = () => {
     // // 3) اتجاه الجهاز (البوصلة)
     const handleOrientation = (event) => {
       if (event.alpha !== null) {
-        setDeviceDeg(prev => prev * 0.9 + event.alpha * 0.1);
+        // قلب الاتجاه
+        const correctedAlpha = 360 - event.alpha;
+
+        setDeviceDeg(prev => prev * 0.9 + correctedAlpha * 0.1);
       }
     };
 
