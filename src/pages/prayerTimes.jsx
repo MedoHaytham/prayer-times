@@ -26,7 +26,7 @@ const PrayerTimes = () => {
     {name: 'قنا', value: 'Qena'},
     {name: 'كفر الشيخ', value: 'Kafr El Sheikh'},
     {name: 'مطروح', value: 'Matrouh'},
-  ]
+  ];
 
   const [date, setDate] = useState('');
   const [city, setCity] = useState('Cairo');
@@ -36,171 +36,181 @@ const PrayerTimes = () => {
   const [countdown, setCountdown] = useState('');
   const adhanAudio = useRef(null);
 
-
   function getDateToday() {
     const date = new Date();
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const year = String(date.getFullYear());
-
+    const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   }
 
   function getDatetomorrow() {
     const date = new Date();
     date.setDate(date.getDate() + 1);
-
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
     const year = date.getFullYear();
-
     return `${day}-${month}-${year}`;
   }
 
+  // 🔹 useEffect لجلب مواقيت اليوم عند تغيير المدينة
   useEffect(() => {
-
-    async function fetchingTimingsPrayers() {
+    async function fetchingTimingsPrayers(date) {
       try {
-        let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDateToday()}?address=${city},Eg&method=5`);
+        const result = await axios.get(
+          `https://api.aladhan.com/v1/timingsByAddress/${date}?address=${city},Eg&method=5`
+        );
+
         setTimings(result.data.data.timings);
-        setDate(getDateToday());
+        setDate(date);
         setHigri(result.data.data.date.hijri.date);
-      } catch(error) {
-        toast.error('Error fetching timings:' + error);
+      } catch (error) {
+        toast.error('Error fetching timings: ' + error);
       }
     }
-    fetchingTimingsPrayers();
 
+    fetchingTimingsPrayers(getDateToday());
 
-  if (adhanAudio.current) {
-    adhanAudio.current.load();
-  }
-  },[city]);
+    if (adhanAudio.current) {
+      adhanAudio.current.load();
+    }
 
+  }, [city]);
 
+  // 🔹 useEffect للتايمر و تحديد الصلاة القادمة
   useEffect(() => {
-    if(!timings.Fajr) return;
+    if (!timings.Fajr) return;
 
     let hasPlayedAdhan = false;
 
-    const interval = setInterval(() => {
-      
+    const interval = setInterval(async () => {
       const now = new Date();
-      const prayers = ['Fajr', 'Sunrise','Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+      const prayers = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
+      const prayerInArabic = {
+        Fajr: 'الفجر',
+        Sunrise: 'الشروق',
+        Dhuhr: 'الظهر',
+        Asr: 'العصر',
+        Maghrib: 'المغرب',
+        Isha: 'العشاء',
+      };
+
       let found = false;
 
-      for(let p of prayers) {
-        const [hour, minutes] = timings[p].split(':');
+      // 🔹 قبل العشاء
+      for (let p of prayers) {
+        const [h, m] = timings[p].split(':');
         const prayerTime = new Date();
-        prayerTime.setHours(+hour, +minutes, 0, 0);
+        prayerTime.setHours(+h, +m, 0, 0);
 
         if (prayerTime > now) {
           found = true;
-          const prayerInArabic  = {
-            Fajr: 'الفجر',
-            Dhuhr: 'الظهر',
-            Sunrise: 'الشروق',
-            Asr: 'العصر',
-            Maghrib: 'المغرب',
-            Isha: 'العشاء',
-          }
+
           setNextPrayer(prayerInArabic[p]);
 
-          const diff = (prayerTime - now ) / 1000;
-          
-          let h = parseInt(diff / 3600) < 10 ? `0${parseInt(diff / 3600)}` : parseInt(diff / 3600);
-          let m = parseInt((diff % 3600) / 60) < 10? `0${parseInt((diff % 3600) / 60)}` : parseInt((diff % 3600) / 60);
-          let s = parseInt(diff % 60) < 10 ? `0${parseInt(diff % 60)}` : parseInt(diff % 60);
+          const diff = (prayerTime - now) / 1000;
 
-          setCountdown(`${h}h : ${m}m : ${s}s`);
+          const hh = String(Math.floor(diff / 3600)).padStart(2, '0');
+          const mm = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+          const ss = String(Math.floor(diff % 60)).padStart(2, '0');
 
-          if(diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
-            adhanAudio.current.play().catch((error) => toast.error(error));
+          setCountdown(`${hh}h : ${mm}m : ${ss}s`);
+
+          if (diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
+            adhanAudio.current.play().catch(err => toast.error(err));
             hasPlayedAdhan = true;
           }
+
           return;
         }
       }
 
-      if(!found) {
-        const [ishaH, ishaM] = timings.Isha.split(':');
-        const ishaTime = new Date();
-        ishaTime.setHours(+ishaH, +ishaM, 0, 0);
+      // 🔹 بعد العشاء → نعرض مواقيت الغد، ونحسب countdown للفجر فقط
+      if (!found) {
+        const tomorrow = getDatetomorrow();
 
-        if (now > ishaTime) {
-          async function fetchingTimingsPrayers() {
-            try {
-              let result = await axios.get(`https://api.aladhan.com/v1/timingsByAddress/${getDatetomorrow()}?address=${city},Eg&method=5`);
-              setTimings(result.data.data.timings);
-            } catch(error) {
-              toast.error('Error fetching timings:' + error);
-            }
+        try {
+          const result = await axios.get(
+            `https://api.aladhan.com/v1/timingsByAddress/${tomorrow}?address=${city},Eg&method=5`
+          );
+
+          setTimings(result.data.data.timings);
+          setDate(tomorrow);
+          setHigri(result.data.data.date.hijri.date);
+
+          // العد التنازلي للفجر فقط
+          const [fh, fm] = result.data.data.timings.Fajr.split(':');
+          const fajrTime = new Date();
+          fajrTime.setDate(fajrTime.getDate() + 1);
+          fajrTime.setHours(+fh, +fm, 0, 0);
+
+          setNextPrayer('الفجر (غدًا)');
+
+          const diff = (fajrTime - now) / 1000;
+
+          const hh = String(Math.floor(diff / 3600)).padStart(2, '0');
+          const mm = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+          const ss = String(Math.floor(diff % 60)).padStart(2, '0');
+
+          setCountdown(`${hh}h : ${mm}m : ${ss}s`);
+
+          if (diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
+            adhanAudio.current.play().catch(err => toast.error(err));
+            hasPlayedAdhan = true;
           }
-          fetchingTimingsPrayers();
-        }
 
-        const [fh, mh] = timings.Fajr.split(':');
-        const tomorrowfajrTime = new Date();
-        tomorrowfajrTime.setDate(tomorrowfajrTime.getDate() + 1);
-        tomorrowfajrTime.setHours(+fh, +mh, 0, 0);
-
-        setNextPrayer('الفجر (غدا)');
-
-        const diff = (tomorrowfajrTime - now) /1000;
-
-        let h = parseInt(diff / 3600) < 10 ? `0${parseInt(diff / 3600)}` : parseInt(diff / 3600);
-        let m = parseInt((diff % 3600) / 60) < 10? `0${parseInt((diff % 3600) / 60)}` : parseInt((diff % 3600) / 60);
-        let s = parseInt(diff % 60) < 10 ? `0${parseInt(diff % 60)}` : parseInt(diff % 60);
-
-        setCountdown(`${h}h : ${m}m : ${s}s`);
-
-        if(diff < 1 && adhanAudio.current && !hasPlayedAdhan) {
-          adhanAudio.current.play().catch((error) => toast.error(error));
-          hasPlayedAdhan = true;
+        } catch (error) {
+          toast.error('Error fetching tomorrow timings');
         }
       }
 
-    },1000);
+    }, 1000);
 
     return () => clearInterval(interval);
 
-  },[timings, city]);
+  }, [timings, city]);
 
+  // 🔹 تحويل الوقت ل 12 ساعة
   function convertTo12(time24) {
-    if(!time24)
-      return '00:00';
-
+    if (!time24) return '00:00';
     const date = new Date(`1970-01-01T${time24}:00`);
-    return (date.toLocaleString(`en-US`,{
+    return date.toLocaleString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true,
-    }));
+    });
   }
 
-  return ( 
+  return (
     <section className='prayertimes'>
       <div className="container prayer-times-container">
+
         <div className="top_sec">
           <div className="city">
             <h3>المدينة</h3>
             <select name="city" id="city" onChange={(e) => setCity(e.target.value)}>
-              {cities.map((c) => (<option key={c.value} value={c.value}>{c.name}</option>))}
+              {cities.map((c) => (
+                <option key={c.value} value={c.value}>{c.name}</option>
+              ))}
             </select>
           </div>
+
           <div className="date">
             <div></div>
             <h3>التاريخ</h3>
-            <h4 className='fw-bold'>الميلادى : {!date ? '00-00-0000' : date}</h4>
-            <h4 className='fw-bold'>الهجرى : {!higri ? '00-00-0000' : higri}</h4>
+            <h4 className='fw-bold'>الميلادي: {!date ? '00-00-0000' : date}</h4>
+            <h4 className='fw-bold'>الهجري: {!higri ? '00-00-0000' : higri}</h4>
           </div>
         </div>
+
         <div className="countdown">
-          <h5>الصلاة القادمة </h5>
+          <h5>الصلاة القادمة</h5>
           <h5>{nextPrayer}</h5>
-          <h5>الوقت المتبقي </h5>
+          <h5>الوقت المتبقي</h5>
           <h5>{countdown}</h5>
         </div>
+
         <div className='times'>
           <Prayer name={'الفجر'} time={convertTo12(timings.Fajr)}/>
           <Prayer name={'الشروق'} time={convertTo12(timings.Sunrise)}/>
@@ -209,11 +219,12 @@ const PrayerTimes = () => {
           <Prayer name={'المغرب'} time={convertTo12(timings.Maghrib)}/>
           <Prayer name={'العشاء'} time={convertTo12(timings.Isha)}/>
         </div>
+
         <audio ref={adhanAudio} src="https://github.com/MedoHaytham/azan-for-prayer-app/raw/refs/heads/main/adhan.mp3" />
-        
+
       </div>
     </section>
   );
-}
+};
 
 export default PrayerTimes;
