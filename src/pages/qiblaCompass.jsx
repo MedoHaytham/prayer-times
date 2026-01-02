@@ -7,7 +7,7 @@ import compassArrow from '../assets/qiblaArrow.png';
 const QiblaCompass = () => {
 
   const [direction, setDirection] = useState(0);
-  // const [deviceDeg, setDeviceDeg] = useState(0);
+  const [deviceDeg, setDeviceDeg] = useState(0);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -25,10 +25,10 @@ const QiblaCompass = () => {
     );
 
     // // 3) اتجاه الجهاز (البوصلة)
-    // window.addEventListener("deviceorientation", (event) => {
-    //   const alpha = event.alpha;  // اتجاه الجهاز
-    //   setDeviceDeg(alpha);
-    // });
+    window.addEventListener("deviceorientation", (event) => {
+      const alpha = event.alpha;  // اتجاه الجهاز
+      setDeviceDeg(alpha);
+    });
 
   }, []);
 
@@ -37,7 +37,7 @@ const QiblaCompass = () => {
       <div className='container qibla-container'>
         <h2>اتجاه القبلة</h2>
         <div className='img-container'>
-          {/* <img className='compass-img' src={compassImg} alt="compass" style={{ transform: `rotate(${-deviceDeg}deg)` }} /> */}
+          <img className='compass-img' src={compassImg} alt="compass" style={{ transform: `rotate(${-deviceDeg}deg)` }} />
           <img  className='compass-img' src={compassImg} alt="compass" />
           <img className='arrow-img' src={compassArrow} alt="arrow" style={{ transform: `rotate(${direction}deg) scale(0.4)`}}/>
         </div>
