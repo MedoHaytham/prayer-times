@@ -53,7 +53,6 @@ const PrayerTimes = () => {
     return `${day}-${month}-${year}`;
   }
 
-  // 🔹 useEffect لجلب مواقيت اليوم عند تغيير المدينة
   useEffect(() => {
     async function fetchingTimingsPrayers(date) {
       try {
@@ -77,7 +76,6 @@ const PrayerTimes = () => {
 
   }, [city]);
 
-  // 🔹 useEffect للتايمر و تحديد الصلاة القادمة
   useEffect(() => {
     if (!timings.Fajr) return;
 
@@ -98,7 +96,6 @@ const PrayerTimes = () => {
 
       let found = false;
 
-      // 🔹 قبل العشاء
       for (let p of prayers) {
         const [h, m] = timings[p].split(':');
         const prayerTime = new Date();
@@ -126,7 +123,6 @@ const PrayerTimes = () => {
         }
       }
 
-      // 🔹 بعد العشاء → نعرض مواقيت الغد، ونحسب countdown للفجر فقط
       if (!found) {
         const tomorrow = getDatetomorrow();
 
@@ -139,7 +135,6 @@ const PrayerTimes = () => {
           setDate(tomorrow);
           setHigri(result.data.data.date.hijri.date);
 
-          // العد التنازلي للفجر فقط
           const [fh, fm] = result.data.data.timings.Fajr.split(':');
           const fajrTime = new Date();
           fajrTime.setDate(fajrTime.getDate() + 1);
@@ -171,7 +166,6 @@ const PrayerTimes = () => {
 
   }, [timings, city]);
 
-  // 🔹 تحويل الوقت ل 12 ساعة
   function convertTo12(time24) {
     if (!time24) return '00:00';
     const date = new Date(`1970-01-01T${time24}:00`);
