@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Islamic App - Prayer Times, Quran, Azkar & Qibla 🕌
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive React-based Islamic web application providing prayer times with Adhan notifications, full Quran reading, daily Azkar, and a Qibla compass. 
 
-## Available Scripts
+[**View Live Demo**](https://MedoHaytham.github.io/prayer-times)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **Prayer Times (أوقات الصلاة):** Accurate daily prayer timings for multiple cities in Egypt, highlighting the next prayer with a dynamic countdown, Hijri date display, and automatic Adhan playback when it's time to pray.
+- **Holy Quran (القرآن الكريم):** Browse and read all 114 Surahs (chapters) of the Holy Quran, presented in an easy-to-navigate layout.
+- **Azkar (الأذكار):** A collection of essential daily supplications including Morning, Evening, and other categories of Azkar.
+- **Qibla Compass (اتجاه القبلة):** Real-time compass feature utilizing device orientation and GPS to help accurately locate the Qibla (Kaaba) direction.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **ReactJS:** Frontend building framework.
+- **React Router (HashRouter):** Handling SPA navigation.
+- **Bootstrap / CSS:** Styling, UI components, and responsive layout.
+- **Axios:** Managing API requests.
+- **React Toastify:** For elegant error and alert notifications.
+- **FontAwesome:** System icons.
 
-### `npm test`
+## 📡 APIs Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **[Aladhan API](https://aladhan.com/prayer-times-api):** 
+   - Used to fetch accurate prayer times based on city and country.
+   - Calculates the Qibla direction based on the user's geographical coordinates (latitude/longitude).
+2. **[AlQuran Cloud API](https://alquran.cloud/api):** 
+   - Provides comprehensive listings of Surahs, verses, and revelation types.
 
-### `npm run build`
+## 🚀 Installation & Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy up and running, follow these simple steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repository && Navigate to the project directory:**
+   ```bash
+   git clone https://github.com/MedoHaytham/prayer-times.git
+   cd prayer-times
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install NPM Packages:**
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Run the Development Server:**
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Building & Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To build the app for production to the `build` folder:
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project utilizes `gh-pages` for deployment. You can deploy updates using:
+```bash
+npm run deploy
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created with ❤️ by Mohamed Haytham.
