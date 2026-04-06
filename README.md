@@ -28,6 +28,20 @@ A comprehensive React-based Islamic web application providing prayer times with 
 2. **[AlQuran Cloud API](https://alquran.cloud/api):** 
    - Provides comprehensive listings of Surahs, verses, and revelation types.
 
+## 📁 Project Structure
+
+```text
+src/
+├── assets/         # Static image assets and compass icons
+├── components/     # Reusable UI components (Prayer card, Surah card, Navbar)
+├── layout/         # Global layout wrappers (RootLayout)
+├── pages/          # Application pages/routes (PrayerTimes, Quran, Azkar, QiblaCompass)
+├── App.jsx         # Main application component & routing setup
+├── App.css         # Application-level styles
+├── index.js        # React DOM entry point
+└── index.css       # Global styles
+```
+
 ## 🚀 Installation & Setup
 
 To get a local copy up and running, follow these simple steps:
